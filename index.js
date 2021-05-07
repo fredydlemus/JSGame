@@ -1,10 +1,14 @@
 
+
+
 const cero = document.getElementById('cero');
 const uno = document.getElementById('uno');
 const dos = document.getElementById('dos');
 const tres = document.getElementById('tres')
 const btnEmpezar = document.getElementById('btnEmpezar');
-const ULTIMO_NIVEL = 1
+const ULTIMO_NIVEL = 10
+
+
 
 class Juego{
     
@@ -21,13 +25,21 @@ class Juego{
     inicializar(){
         this.siguienteNivel = this.siguienteNivel.bind(this)
         this.elegirBoton = this.elegirBoton.bind(this) //.bind especifica quien es this, si no, el boton sera this
-        btnEmpezar.classList.add('hide');
+        this.toogleBtnEmpezar()
         this.nivel = 1
         this.botones = {
             cero,
             uno,
             dos,
             tres
+        }
+    }
+
+    toogleBtnEmpezar(){
+        if(btnEmpezar.classList.contains('hide')){
+            btnEmpezar.classList.remove('hide')
+        }else{
+            btnEmpezar.classList.add('hide')
         }
     }
 
@@ -71,8 +83,9 @@ class Juego{
         for(let i = 0; i < this.nivel; i++){
             
             const boton = this.transformarElementoABoton(this.secuencia[i])
+           
             setTimeout(() =>  this.iluminarBoton(boton), 1000 * i)
-        } 
+        }
     }
 
     iluminarBoton(boton){
@@ -99,18 +112,15 @@ class Juego{
     }
 
     ganoElJuego(){
-        swal('Hola','Felicitaciones, ganaste el juego!', 'success') //devuelve una promesa
-            .then(() => {
-                
-                this.inicializar.bind(this)
-            })
+        swal(':D','Felicitaciones, ganaste el juego!', 'success') //devuelve una promesa
+            .then(() => this.inicializar())
     }
 
     perdioElJuego(){
-        swal('Hola', 'Lo lamentamos, perdiste :(', 'error')
+        swal('D:', 'Lo lamentamos, perdiste', 'error')
          .then(() => {
-             this.eliminarEventosClick.bind(this)
-             this.inicializar.bind(this)
+             this.eliminarEventosClick()
+             this.inicializar()
          })
     }
 

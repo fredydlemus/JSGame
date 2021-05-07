@@ -38,12 +38,30 @@ body {
   background: #daf7a6;
 }
 
+.cero:hover {
+  transform: scale(0.95);
+}
+
+.cero:active {
+  background: #94bf47;
+  transform: scale(0.75);
+}
+
 .cero.light {
   background: #edf5df;
 }
 
 .uno {
   background: #581845;
+}
+
+.uno:hover {
+  transform: scale(0.95);
+}
+
+.uno:active {
+  background: #220018;
+  transform: scale(0.75);
 }
 
 .uno.light {
@@ -54,12 +72,30 @@ body {
   background: #ff5733;
 }
 
+.dos:hover {
+  transform: scale(0.95);
+}
+
+.dos:active {
+  background: #bd2200;
+  transform: scale(0.75);
+}
+
 .dos.light {
   background: #fea18d;
 }
 
 .tres {
   background: #ffc300;
+}
+
+.tres:hover {
+  transform: scale(0.95);
+}
+
+.tres:active {
+  background: #967200;
+  transform: scale(0.75);
 }
 
 .tres.light {
